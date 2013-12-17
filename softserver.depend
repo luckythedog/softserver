@@ -1,17 +1,5 @@
 # depslib dependency file v1.0
-1386856261 source:/home/lucky/workspace/softserver/main.c
-	<stdlib.h>
-	<gtk/gtk.h>
-	<pthread.h>
-	<pthread.h>
-	<sys/types.h>
-	<sys/socket.h>
-	<sys/time.h>
-	<semaphore.h>
-	<netinet/in.h>
-	<arpa/inet.h>
-	<poll.h>
-	<winsocks2.h>
+1387261984 source:/home/lucky/workspace/softserver/main.c
 
 1344270529 /usr/include/gtk-2.0/gtk/gtk.h
 	<gdk/gdk.h>
@@ -2416,4 +2404,27 @@
 
 1344270530 /usr/include/gtk-2.0/gtk/gtktipsquery.h
 	<gtk/gtk.h>
+
+1387278788 source:/home/lucky/workspace/softserver/main.cpp
+	"gtk/gtk.h"
+	<stdio.h>
+	<iostream>
+	<string>
+	<cstring>
+	<unistd.h>
+	<vector>
+	<sstream>
+	<fstream>
+	<poll.h>
+	<errno.h>
+	<cstdlib>
+	<queue>
+	<pthread.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<semaphore.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<winsocks.h>
 
