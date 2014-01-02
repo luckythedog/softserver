@@ -2405,7 +2405,7 @@
 1344270530 /usr/include/gtk-2.0/gtk/gtktipsquery.h
 	<gtk/gtk.h>
 
-1387278788 source:/home/lucky/workspace/softserver/main.cpp
+1388646514 source:/home/lucky/workspace/softserver/main.cpp
 	"gtk/gtk.h"
 	<stdio.h>
 	<iostream>
@@ -2427,4 +2427,67 @@
 	<netinet/in.h>
 	<arpa/inet.h>
 	<winsocks.h>
+
+1387370097 /home/lucky/workspace/softserver/packet.h
+	"soft_space.h"
+
+1387370097 /home/lucky/workspace/softserver/soft_space.h
+	<time.h>
+	<queue>
+	<cstring>
+	<map>
+
+1387370087 source:/home/lucky/workspace/softserver/packet.cpp
+	"packet.h"
+
+1387323950 source:/home/lucky/workspace/softserver/packet_secure.cpp
+
+1387370088 source:/home/lucky/workspace/softserver/client.cpp
+	"client.h"
+
+1387369980 source:/home/lucky/workspace/softserver/area.cpp
+	"area.h"
+
+1387370005 /home/lucky/workspace/softserver/area.h
+	<map>
+	"client.h"
+	<pthread.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<semaphore.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<winsocks.h>
+
+1387370088 /home/lucky/workspace/softserver/client.h
+	<map>
+	"soft_space.h"
+
+1387688852 /home/lucky/workspace/softserver/softspace.h
+
+1388646303 source:/home/lucky/workspace/softserver/softobject.cpp
+	"softobject.h"
+
+1388646300 /home/lucky/workspace/softserver/softobject.h
+	<iostream>
+	<vector>
+
+1388646255 source:/home/lucky/workspace/softserver/softserver.cpp
+	"softserver.h"
+
+1388646495 /home/lucky/workspace/softserver/softserver.h
+	<iostream>
+	<vector>
+	<cstring>
+	<pthread.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<semaphore.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<poll.h>
+	<winsocks.h>
+	"softobject.h"
 

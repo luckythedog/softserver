@@ -35,9 +35,17 @@
 		<Linker>
 			<Add option="`pkg-config gtk+-2.0 --libs`" />
 		</Linker>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="area.cpp" />
+		<Unit filename="area.h" />
+		<Unit filename="client.cpp" />
+		<Unit filename="client.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="packet.cpp" />
+		<Unit filename="packet.h" />
+		<Unit filename="packet_secure.cpp" />
+		<Unit filename="packet_secure.h" />
+		<Unit filename="server_settings.xml" />
+		<Unit filename="soft_space.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

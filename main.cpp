@@ -226,7 +226,7 @@ void send_secure_msg_to_sock(unsigned int uiSocket){
     sMessage.Type = Secure_Message;
     strcpy(sMessage.chMessage, "You are already logged in");
 
-    send(sRequest.sClient->uiSocket, (char*)&sMessage, sizeof(sMessage),0);
+    send(uiSocket, (char*)&sMessage, sizeof(sMessage),0);
 }
 
 void* secure_func_thread(void*)
