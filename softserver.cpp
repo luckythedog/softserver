@@ -34,7 +34,7 @@ bool softserver::set_api_key(char _key[128]){
 void *softserver::process_th(void* args){
     softserver *properties = (softserver*) args;
     pollfd client_socket_poll;
-    client_socket_poll.fd = properties->client_socket;
+    client_socket_poll.fd = properties->client_tcp_socket;
     client_socket_poll.events = POLLIN;
     pollfd* client_socket_poll_ptr;
     int poll_activity;
@@ -42,12 +42,11 @@ void *softserver::process_th(void* args){
         client_socket_poll_ptr = &client_socket_poll;
         poll_activity = poll(client_socket_poll_ptr, 1, -1);
         if(client_socket_poll.revents & POLLIN){
-            char msg_peek[250];
-            if(recv(properties->client_socket, msg_peek, sizeof(msg_peek), MSG_PEEK)){
-                softobject* temp_obj = (softobject*)&msg_peek;
-                if(temp_obj->type ==OBJECT){
-                    properties->receive_obj(*temp_obj); //Send temp_obj for them to handle*/
-                }
+            tcp_packet recv_tcp_packet;
+            if(recv(properties->client_tcp_socket, (char*)&recv_tcp_packet, sizeof(recv_tcp_packet) , MSG_PEEK) != 0){
+
+            }else{
+                    /*Disconnection*/
             }
         }
     }
@@ -60,10 +59,10 @@ conn_message softserver::start_connect(){
         address_sockaddr.sin_family = AF_INET;
         address_sockaddr.sin_port = htons(port);
         address_sockaddr.sin_addr.s_addr = INADDR_ANY;
-        client_socket = socket(AF_INET, SOCK_STREAM, 0);
+        client_tcp_socket = socket(AF_INET, SOCK_STREAM, 0);
 
 
-        if(connect(  client_socket, (struct sockaddr*)&address_sockaddr, sizeof(address_sockaddr)  ) <0){
+        if(connect(  client_tcp_socket, (struct sockaddr*)&address_sockaddr, sizeof(address_sockaddr)  ) <0){
             return CONNECTION_FAIL;
         }
         pthread_create(&process_th_t, NULL, &softserver::process_th, (softserver*) this);
@@ -82,9 +81,9 @@ conn_message softserver::disconnect(){
 
 send_message softserver::send_obj(softobject _object){
     if(!is_connected){
-    return NOT_CONNECTED;
+        return NOT_CONNECTED;
     }
-    /*This is where encryption occurs*/
+    /*This is where encryption occurs and object serialization*/
     char* encryption_buffer = new char [sizeof(_object)];
     memcpy(&encryption_buffer, &_object, sizeof(_object));
     for(int i=0; i<sizeof(_object); i++){
@@ -93,7 +92,7 @@ send_message softserver::send_obj(softobject _object){
             encryption_buffer[i] ^= api_key[b];
         }
     }
-    if(send(client_socket, encryption_buffer, sizeof(_object), 0) <0){
+    if(send(client_tcp_socket, encryption_buffer, sizeof(_object), 0) <0){
         delete encryption_buffer;
         return SEND_FAILED;
     }

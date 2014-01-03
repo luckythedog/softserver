@@ -6,6 +6,7 @@
  *************************/
 /*GTK library*/
 #include "gtk/gtk.h"
+#include "softobject.h"
 /*Standard libraries*/
 #include <stdio.h>
 #include <iostream>
@@ -511,6 +512,8 @@ static void stop_serv (GtkWidget *widget, gpointer data)
 
 int main(int argc, char* argv[])
 {
+        softobject new_obj;
+        std::cout << sizeof(new_obj) << std::endl;
 
         /*Make sure server is not online*/
         bServerOnline = false;

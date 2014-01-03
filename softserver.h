@@ -25,7 +25,16 @@
 
 #ifndef ___SOFTSERVER
 #define ___SOFTSERVER
+enum tcp_comm{
+    TCP_NOTIFY,
+    TCP_ALERT,
+    TCP_ERROR
+};
 
+struct tcp_packet{
+    tcp_comm type;
+    char message[50];
+};
 enum conn_message{
     CONNECTION_SUCCESS,
     CONNECTION_DISCONNECT,
@@ -66,7 +75,8 @@ class softserver{
     bool has_api_key;
     char address[16]; //ip address
     unsigned int port;
-    unsigned int client_socket;
+    unsigned int client_tcp_socket;
+    unsigned int client_udp_socket;
 };
 
 

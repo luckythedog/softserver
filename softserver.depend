@@ -2405,8 +2405,9 @@
 1344270530 /usr/include/gtk-2.0/gtk/gtktipsquery.h
 	<gtk/gtk.h>
 
-1388646514 source:/home/lucky/workspace/softserver/main.cpp
+1388654471 source:/home/lucky/workspace/softserver/main.cpp
 	"gtk/gtk.h"
+	"softobject.h"
 	<stdio.h>
 	<iostream>
 	<string>
@@ -2466,14 +2467,19 @@
 
 1387688852 /home/lucky/workspace/softserver/softspace.h
 
-1388646303 source:/home/lucky/workspace/softserver/softobject.cpp
+1388729109 source:/home/lucky/workspace/softserver/softobject.cpp
 	"softobject.h"
 
-1388646300 /home/lucky/workspace/softserver/softobject.h
+1388729116 /home/lucky/workspace/softserver/softobject.h
 	<iostream>
 	<vector>
+	<cstring>
+	<string>
+	"softattribute.h"
+	"softattributearray.h"
+	<map>
 
-1388646255 source:/home/lucky/workspace/softserver/softserver.cpp
+1388652045 source:/home/lucky/workspace/softserver/softserver.cpp
 	"softserver.h"
 
 1388646495 /home/lucky/workspace/softserver/softserver.h
@@ -2490,4 +2496,16 @@
 	<poll.h>
 	<winsocks.h>
 	"softobject.h"
+
+1388654158 /home/lucky/workspace/softserver/softattribute.h
+	<cstring>
+	<string>
+	<vector>
+
+1388653756 source:/home/lucky/workspace/softserver/softattribute.cpp
+	"softattribute.h"
+
+1388654160 /home/lucky/workspace/softserver/softattributearray.h
+	<cstring>
+	<string>
 
